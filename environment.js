@@ -12,4 +12,4 @@ module.exports = function(app) {
 	_Environment.development = require('./development.js')(app);
 	_Environment.production = require('./production.js')(app);
 	return _Environment;
-}();//calls itself
+}

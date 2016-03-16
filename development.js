@@ -201,4 +201,4 @@ module.exports = function(app) {
         // passport.use(new FacebookStrategy({}));
     }
     return _Development;
-}();//calls itself
+}
