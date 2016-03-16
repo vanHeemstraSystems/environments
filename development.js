@@ -16,15 +16,15 @@
  */
 module.exports = function(app) {
     var _Development = {};
-    config = require('../configs/server.js');
-    var configs = config.configs,
-        server_prefix = configs.server_prefix || 'PREFIX';
+    config = require('../configurations/configurations.js');
+    var common = config.common,
+        server_prefix = common.server_prefix || 'PREFIX';
     // User List
-    if(typeof configs.user_list === 'undefined'){
+    if(typeof common.user_list === 'undefined'){
         var user_list = {};
     }
     else {
-        var user_list = configs.user_list;
+        var user_list = common.user_list;
     }
     console.log(server_prefix + " - Environments development required.");
     var express = require('express'),
@@ -201,4 +201,4 @@ module.exports = function(app) {
         // passport.use(new FacebookStrategy({}));
     }
     return _Development;
-};
+}();//calls itself
