@@ -15,10 +15,13 @@
  * echo %NODE_ENV%
  */
 module.exports = function(app) {
-    var _Production = {};
-    config = require('../configurations/configurations.js');
-    var common = config.common,
-        server_prefix = common.server_prefix || 'PREFIX';
+  var _Production = {};
+  var path = require('../libraries/path');
+  var paths = require('../paths/paths');
+  config = require(path.join(paths.configurations, '/configurations.js'))(app);
+  var common = config.common,
+  server_prefix = common.server_prefix || 'PREFIX';
+  console.log(server_prefix + " - Environments production required.");
     // User List
     if(typeof common.user_list === 'undefined'){
         var user_list = {};
@@ -26,7 +29,6 @@ module.exports = function(app) {
     else {
         var user_list = common.user_list;
     }
-    console.log(server_prefix + " - Environments production required.");
     var express = require('express'),
         path = require('path'),
         i18n = require('i18n-2'),
