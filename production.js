@@ -29,15 +29,23 @@ module.exports = function(app) {
     else {
         var user_list = common.user_list;
     }
-    var express = require('express'),
-        path = require('path'),
-        i18n = require('i18n-2'),
-        hash = require('../libraries/pass.js').hash,
-        bodyParser = require('body-parser'),
-        session = require('express-session'),
-        passport = require('passport'),
-        LocalStrategy = require('passport-local').Strategy,
-        FacebookStrategy = require('passport-facebook').Strategy;
+    var //express = require('express'),
+        express = require(path.join(paths.libraries, '/express.js')),
+        //path = require('path'), // ALREADY REQUIRED ABOVE
+        //i18n = require('i18n-2'),
+        i18n = require(path.join(paths.libraries, '/i18n.js')),
+        //hash = require('../libraries/pass.js').hash,
+        hash = require(path.join(paths.libraries, '/pass.js')).hash,
+        //bodyParser = require('body-parser'),
+        bodyParser = require(path.join(paths.libraries, '/body-parser.js')),
+        //session = require('express-session'),
+        session = require(path.join(paths.libraries, '/express-session.js')),
+        //passport = require('passport'),
+        passport = require(path.join(paths.libraries, '/passport.js')),
+        //LocalStrategy = require('passport-local').Strategy,
+        LocalStrategy = require(path.join(paths.libraries, '/passport-local.js')).Strategy,
+        //FacebookStrategy = require('passport-facebook').Strategy;
+        FacebookStrategy = require(path.join(paths.libraries, '/passport-facebook.js')).Strategy;
     if('production' == app.settings.env) {
         console.log(server_prefix + " - Using production configurations");
         app.set('view engine', 'ejs');
