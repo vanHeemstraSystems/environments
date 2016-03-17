@@ -14,4 +14,4 @@ module.exports = function(app) {
   _Environments.development = require('./development.js')(app);
   _Environments.production = require('./production.js')(app);
   return _Environments;
-}
+};//does not call itself
